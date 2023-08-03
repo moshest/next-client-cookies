@@ -87,6 +87,8 @@ const MyComponent = () => {
 };
 ```
 
+Next.js currently [does NOT support](https://nextjs.org/docs/app/api-reference/functions/cookies) update cookies on the server component (only on Actions or Routes). If you need to update cookies on the server please switch to a client component which will be render ALSO on the server.
+
 ## License
 
 MIT

@@ -2,10 +2,7 @@
 
 Client cookies with support for SSR on the newest Next.js 13 (app directory).
 
-Supports:
-
-- [x] Client components (both client and server side)
-- [x] Server components (without SSR)
+SSR are **client components** that can be render both on the client and server side. Server components are **server only** components that can only be render on the server side. This library can support all 3 cases and will give you everything you need to work with cookies on the client and server side.
 
 Interface and client side implementation based on [js-cookie](https://www.npmjs.com/package/js-cookie).
 

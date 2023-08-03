@@ -79,7 +79,7 @@ Will produce the same `Cookies` interfaces using Next.js's `cookies()` helper.
 import { getCookies } from 'next-client-cookies/server';
 
 const MyComponent = () => {
-  const cookies = useCookies();
+  const cookies = getCookies();
 
   return (
     <div>

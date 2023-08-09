@@ -23,8 +23,8 @@ yarn add next-client-cookies
 
 import { CookiesProvider } from 'next-client-cookies';
 
-export const ClientCookiesProvider: typeof Provider = (props) => (
-  <Provider {...props} />
+export const ClientCookiesProvider: typeof CookiesProvider = (props) => (
+  <CookiesProvider {...props} />
 );
 ```
 

@@ -4,3 +4,4 @@
 !/dist/*.mjs
 !/dist/*.mjs.map
 !/dist/**/*.d.ts
+!/server.ts

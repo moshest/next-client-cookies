@@ -50,9 +50,11 @@ type SerializedValue<T> = {
     : T[K];
 };
 
+const windowVarName = '__cookies_commands';
+
 declare global {
   interface Window {
-    __cookies_commands: SerializedValue<CookieCommand>[];
+    [windowVarName]: SerializedValue<CookieCommand>[];
   }
 }
 
@@ -73,16 +75,21 @@ export const CookiesProvider: FC<{
       get: (name?: string) => (name == null ? { ...map } : map[name]) as never,
       set: (...args) => {
         insertedHTML?.(() => getCookieCommandHtml('set', ...args));
-        return map[args[0]];
+
+        const prev = map[args[0]];
+        map[args[0]] = args[1];
+
+        return prev;
       },
       remove: (...args) => {
         insertedHTML?.(() => getCookieCommandHtml('remove', ...args));
+        delete map[args[0]];
       },
     };
   }, [value, insertedHTML]);
 
   useEffect(() => {
-    const commands = window.__cookies_commands || [];
+    const commands = window[windowVarName] || [];
     if (!commands.length) return;
 
     for (const command of commands) {
@@ -96,7 +103,7 @@ export const CookiesProvider: FC<{
 const getCookieCommandHtml = (...command: CookieCommand) => (
   <script
     dangerouslySetInnerHTML={{
-      __html: `window.__cookies_commands = window.__cookies_commands || [];window.__cookies_commands.push(${JSON.stringify(
+      __html: `window.${windowVarName} = window.${windowVarName} || [];window.${windowVarName}.push(${JSON.stringify(
         command,
       ).replaceAll('</', '<\\/')});`,
     }}

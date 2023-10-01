@@ -65,7 +65,7 @@ const MyComponent = () => {
         Set cookie
       </button>
       {' | '}
-      <button onClick={() => cookies.delete('my-cookie')}>Delete cookie</button>
+      <button onClick={() => cookies.remove('my-cookie')}>Delete cookie</button>
     </div>
   );
 };

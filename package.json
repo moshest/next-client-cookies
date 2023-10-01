@@ -1,6 +1,6 @@
 {
   "name": "next-client-cookies",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "SSR and client support for Next.js v13 cookies (app directory)",
   "keywords": [
     "next",
@@ -49,6 +49,7 @@
   "devDependencies": {
     "@neuledge/eslint-config": "^1.1.1",
     "@neuledge/tsconfig": "^2.1.1",
+    "@swc/core": "^1.3.90",
     "@types/js-cookie": "^3.0.3",
     "@types/node": "^20.4.6",
     "@types/react": "^18.2.18",

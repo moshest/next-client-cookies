@@ -2,11 +2,7 @@ export interface Cookies {
   /**
    * Create a cookie
    */
-  set(
-    name: string,
-    value: string,
-    options?: CookieAttributes,
-  ): string | undefined;
+  set(name: string, value: string, options?: CookieAttributes): void;
 
   /**
    * Read cookie

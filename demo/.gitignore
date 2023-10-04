@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# version locks (we want the latest versions when testing)
+/yarn.lock
+/package-lock.json
+
 # testing
 /coverage
 

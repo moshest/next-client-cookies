@@ -75,11 +75,7 @@ export const CookiesProvider: FC<{
       get: (name?: string) => (name == null ? { ...map } : map[name]) as never,
       set: (...args) => {
         insertedHTML?.(() => getCookieCommandHtml('set', ...args));
-
-        const prev = map[args[0]];
         map[args[0]] = args[1];
-
-        return prev;
       },
       remove: (...args) => {
         insertedHTML?.(() => getCookieCommandHtml('remove', ...args));

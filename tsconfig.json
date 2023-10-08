@@ -1,7 +1,6 @@
 {
   "extends": "@neuledge/tsconfig/base.json",
   "compilerOptions": {
-    "jsx": "preserve",
     "baseUrl": "src",
     "rootDir": "src",
     "outDir": "dist"

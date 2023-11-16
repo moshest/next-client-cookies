@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "link": "ln -s ../../ node_modules/next-client-cookies"
   },
   "dependencies": {
     "next": "latest",
-    "next-client-cookies": "*",
+    "next-client-cookies": "../",
     "react": "latest",
     "react-dom": "latest"
   },

@@ -13,7 +13,7 @@ Interface and client side implementation based on the [js-cookie](https://www.np
 1. Install the package:
 
 ```
-yarn add next-client-cookies
+npm add next-client-cookies
 ```
 
 2. Create a `client only` component provider:

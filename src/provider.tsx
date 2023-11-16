@@ -1,37 +1,11 @@
 'use client';
 
-import React, {
-  FC,
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import React, { FC, ReactNode, useContext, useEffect, useMemo } from 'react';
 import { CookieAttributes, Cookies } from './types';
 import jsCookies from 'js-cookie';
 import { ServerInsertedHTMLContext } from 'next/navigation';
 import { ServerInsertedHTMLHook } from 'next/dist/shared/lib/server-inserted-html';
-
-// Context
-
-const Ctx = createContext<Cookies | null>(null);
-
-export const useCookies = (): Cookies => {
-  const cookies = useContext(Ctx);
-
-  if (typeof window !== 'undefined') {
-    return jsCookies;
-  }
-
-  if (!cookies) {
-    throw new Error('Missing <CookiesProvider>');
-  }
-
-  return cookies;
-};
-
-// SSR Provider
+import { Ctx } from './context';
 
 interface CookieRecord {
   name: string;

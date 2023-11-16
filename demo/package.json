@@ -6,18 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "link": "ln -s ../../ node_modules/next-client-cookies"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "latest",
-    "next-client-cookies": "../",
+    "next-client-cookies": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
-    "@types/react": "latest",
+    "@types/react": "18.2.18",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
     "eslint": "latest",

@@ -6,11 +6,7 @@ import jsCookies from 'js-cookie';
 import { ServerInsertedHTMLContext } from 'next/navigation';
 import { ServerInsertedHTMLHook } from 'next/dist/shared/lib/server-inserted-html';
 import { Ctx } from './context';
-
-interface CookieRecord {
-  name: string;
-  value: string;
-}
+import { CookieRecord, SecureValueRef, useSecureCookies } from './secure';
 
 type CookieCommand = {
   [key in keyof Cookies]: [key, ...Parameters<Cookies[key]>];
@@ -32,10 +28,29 @@ declare global {
   }
 }
 
+/**
+ * @deprecated Use `<CookiesProvider />` from `next-client-cookies/server` instead.
+ */
 export const CookiesProvider: FC<{
   value: CookieRecord[];
   children: ReactNode;
 }> = ({ value, children }) => {
+  const cookies = useCookieRecords(value);
+
+  return <Ctx.Provider value={cookies}>{children}</Ctx.Provider>;
+};
+
+export const SecureCookiesProvider: FC<{
+  value: SecureValueRef;
+  children: ReactNode;
+}> = ({ value, children }) => {
+  const secureValue = useSecureCookies(value);
+  const cookies = secureValue ? useCookieRecords(secureValue) : null;
+
+  return <Ctx.Provider value={cookies}>{children}</Ctx.Provider>;
+};
+
+const useCookieRecords = (value: CookieRecord[]): Cookies => {
   const insertedHTML = useContext<ServerInsertedHTMLHook | null>(
     ServerInsertedHTMLContext as never,
   );
@@ -67,7 +82,7 @@ export const CookiesProvider: FC<{
     }
   }, []);
 
-  return <Ctx.Provider value={cookies}>{children}</Ctx.Provider>;
+  return cookies;
 };
 
 const getCookieCommandHtml = (...command: CookieCommand) => (

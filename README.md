@@ -16,29 +16,16 @@ Interface and client side implementation based on the [js-cookie](https://www.np
 npm add next-client-cookies
 ```
 
-2. Create a `client only` component provider:
+2. On your `app/layout.tsx` file, add the `CookiesProvider`:
 
 ```jsx
-'use client';
-
-import { CookiesProvider } from 'next-client-cookies';
-
-export const ClientCookiesProvider: typeof CookiesProvider = (props) => (
-  <CookiesProvider {...props} />
-);
-```
-
-3. On your `app/layout.tsx` file, add the `CookiesProvider`:
-
-```jsx
-import { cookies } from 'next/headers';
-import { ClientCookiesProvider } from './provider';
+import { CookiesProvider } from 'next-client-cookies/server';
 
 export default function RootLayout({ children }) {
   return (
-    <ClientCookiesProvider value={cookies().getAll()}>
+    <CookiesProvider>
       {children}
-    </ClientCookiesProvider>
+    </CookiesProvider>
   );
 }
 ```

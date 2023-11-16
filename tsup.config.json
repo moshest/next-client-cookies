@@ -1,6 +1,8 @@
 {
-  "entry": ["src/index.ts", "src/server.ts"],
+  "entry": ["src/**/!(*.d|*.spec).ts", "src/**/!(*.d|*.spec).tsx"],
   "format": ["esm", "cjs"],
   "sourcemap": true,
-  "shims": true
+  "shims": true,
+  "splitting": false,
+  "bundle": false
 }

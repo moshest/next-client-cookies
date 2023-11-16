@@ -1,4 +1,4 @@
-import { getCookies } from 'next-client-cookies/server';
+import { getCookies } from '../../../dist/server';
 
 const MyComponent = () => {
   const cookies = getCookies();

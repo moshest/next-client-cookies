@@ -22,13 +22,11 @@ npm add next-client-cookies
 import { CookiesProvider } from 'next-client-cookies/server';
 
 export default function RootLayout({ children }) {
-  return (
-    <CookiesProvider>
-      {children}
-    </CookiesProvider>
-  );
+  return <CookiesProvider>{children}</CookiesProvider>;
 }
 ```
+
+Please note this will make the entire app to opted out of static generation. If you want to opt out only some pages, you can use the `CookiesProvider` on a per page basis and create a custom server-side `layout.tsx` file for those pages.
 
 ## Usage
 

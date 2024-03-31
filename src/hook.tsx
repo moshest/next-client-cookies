@@ -11,7 +11,9 @@ export const useCookies = (): Cookies => {
     const org = typeof window === 'undefined' ? ctx : jsCookies;
 
     if (!org) {
-      throw new Error('Missing <CookiesProvider>');
+      throw new Error(
+        'Missing `<CookiesProvider>` from "next-client-cookies/server"',
+      );
     }
 
     return {

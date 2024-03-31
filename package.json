@@ -1,6 +1,6 @@
 {
   "name": "next-client-cookies",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "SSR and client support for Next.js v13 cookies (app directory)",
   "keywords": [
     "next",

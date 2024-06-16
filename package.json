@@ -40,7 +40,7 @@
   },
   "scripts": {
     "types": "rimraf --glob dist/*.{d.ts,d.ts.map} dist/**/*.{d.ts,d.ts.map} && tsc --emitDeclarationOnly && tsc-alias",
-    "build": "rimraf --glob dist/*.{js,js.map,mjs,mjs.map} && tsup"
+    "build": "rimraf --glob dist/*.{js,js.map,mjs,mjs.map} && tsup && sed --in-place 's/\\(from \"\\.\\/.\\+\\)\";$/\\1.mjs\";/g' dist/*.mjs"
   },
   "peerDependencies": {
     "next": ">= 13.0.0",

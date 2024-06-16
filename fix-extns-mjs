@@ -1,0 +1,6 @@
+# local files
+sed --in-place 's/\(from "\.\/.\+\)";$/\1.mjs";/g' dist/*.mjs
+
+# next/* packages
+sed --in-place 's/\(from "next\/.\+\)";$/\1.js";/g' dist/*.mjs
+

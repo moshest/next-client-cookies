@@ -63,8 +63,8 @@ Will produce the same `Cookies` interfaces using Next.js's `cookies()` helper.
 ```jsx
 import { getCookies } from 'next-client-cookies/server';
 
-const MyComponent = () => {
-  const cookies = getCookies();
+const MyComponent = async () => {
+  const cookies = await getCookies();
 
   return (
     <div>

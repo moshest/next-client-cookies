@@ -1,7 +1,7 @@
 import { getCookies } from '../../../dist/server';
 
-const MyComponent = () => {
-  const cookies = getCookies();
+const MyComponent = async () => {
+  const cookies = await getCookies();
 
   return (
     <div>

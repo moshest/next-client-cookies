@@ -1,12 +1,17 @@
 import { cookies } from 'next/headers';
 import { CookieAttributes, Cookies } from './types';
 import type { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
-import React, { FC, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { SecureCookiesProvider } from './provider';
 import { storeSecureCookies } from './secure';
 
-export const CookiesProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const secretValue = cookies().getAll();
+export const CookiesProvider = async ({
+  children,
+}: {
+  children: ReactNode;
+}): Promise<ReactElement> => {
+  const cookiesSync = await cookies();
+  const secretValue = cookiesSync.getAll();
 
   return (
     <SecureCookiesProvider value={storeSecureCookies(secretValue)}>
@@ -15,8 +20,8 @@ export const CookiesProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-export const getCookies = (): Cookies => {
-  const org = cookies();
+export const getCookies = async (): Promise<Cookies> => {
+  const org = await cookies();
 
   return {
     get: (name?: string) =>

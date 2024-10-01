@@ -63,8 +63,8 @@ Will produce the same `Cookies` interfaces using Next.js's `cookies()` helper.
 ```jsx
 import { getCookies } from 'next-client-cookies/server';
 
-const MyComponent = () => {
-  const cookies = getCookies();
+const MyComponent = async () => {
+  const cookies = await getCookies();
 
   return (
     <div>
@@ -72,6 +72,17 @@ const MyComponent = () => {
     </div>
   );
 };
+```
+
+## Migration
+
+### From `v1`
+
+If you are migrating from `v1`, you will need to add `await` to the `getCookies` function. This is because Next.js's `cookies()` function is now async and will return a promise.
+
+```diff
+- const cookies = getCookies();
++ const cookies = await getCookies();
 ```
 
 ## License

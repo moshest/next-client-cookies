@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "src",
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__ignore__/**"]

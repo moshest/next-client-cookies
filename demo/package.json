@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "next": "latest",
-    "next-client-cookies": "latest",
+    "next-client-cookies": "../",
     "react": "latest",
     "react-dom": "latest"
   },

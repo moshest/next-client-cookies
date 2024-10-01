@@ -74,6 +74,17 @@ const MyComponent = async () => {
 };
 ```
 
+## Migration
+
+### From `v1`
+
+If you are migrating from `v1`, you will need to add `await` to the `getCookies` function. This is because the `getCookies` function is now async and will return a promise.
+
+```diff
+- const cookies = getCookies();
++ const cookies = await getCookies();
+```
+
 ## License
 
 MIT

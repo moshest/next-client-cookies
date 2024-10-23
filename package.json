@@ -1,6 +1,6 @@
 {
   "name": "next-client-cookies",
-  "version": "1.1.1",
+  "version": "2.0.0-alpha.1",
   "description": "SSR and client support for Next.js v13 cookies (app directory)",
   "keywords": [
     "next",
@@ -43,7 +43,7 @@
     "build": "rimraf --glob dist/*.{js,js.map,mjs,mjs.map} && tsup"
   },
   "peerDependencies": {
-    "next": ">= 13.0.0",
+    "next": ">= 15.0.0",
     "react": ">= 16.8.0"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "eslint": "^8.46.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
-    "next": "^13.4.12",
+    "next": "^15.0.1",
     "prettier": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

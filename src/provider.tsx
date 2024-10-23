@@ -4,7 +4,7 @@ import React, { FC, ReactNode, useContext, useEffect, useMemo } from 'react';
 import { CookieAttributes, Cookies } from './types';
 import jsCookies from 'js-cookie';
 import { ServerInsertedHTMLContext } from 'next/navigation';
-import { ServerInsertedHTMLHook } from 'next/dist/shared/lib/server-inserted-html';
+import { ServerInsertedHTMLHook } from 'next/dist/shared/lib/server-inserted-html.shared-runtime';
 import { Ctx } from './context';
 import { CookieRecord, SecureValueRef, useSecureCookies } from './secure';
 
@@ -16,8 +16,8 @@ type SerializedValue<T> = {
   [K in keyof T]: Date extends T[K]
     ? string
     : object extends T[K]
-    ? SerializedValue<T[K]>
-    : T[K];
+      ? SerializedValue<T[K]>
+      : T[K];
 };
 
 const windowVarName = '__cookies_commands';

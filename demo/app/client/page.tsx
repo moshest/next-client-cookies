@@ -9,7 +9,7 @@ const MyComponent = () => {
     <div>
       <p>My cookie value: {cookies.get('my-cookie')}</p>
 
-      <button onClick={() => cookies.set('my-cookie', 'my-value')}>
+      <button onClick={() => cookies.set('my-cookie', new Date().toISOString())}>
         Set cookie
       </button>
       {' | '}

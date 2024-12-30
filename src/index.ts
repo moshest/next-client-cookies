@@ -1,5 +1,5 @@
 'use client';
 
-export * from './types';
+export type * from './types';
 export * from './hook';
 export * from './provider';

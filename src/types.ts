@@ -18,6 +18,11 @@ export interface Cookies {
    * Delete cookie
    */
   remove(name: string, options?: CookieAttributes): void;
+
+  /**
+   * Transform to cookie header
+   */
+  toString(): string;
 }
 
 export interface CookieAttributes {

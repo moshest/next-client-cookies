@@ -36,6 +36,8 @@ export const getCookies = async (): Promise<Cookies> => {
     },
 
     remove: (name) => org.delete(name),
+
+    toString: () => org.toString(),
   };
 };
 

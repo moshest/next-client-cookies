@@ -1,5 +1,5 @@
 'use client';
 
-export type * from './types';
-export * from './hook';
-export * from './provider';
+export type { Cookies, CookieAttributes } from './types';
+export { useCookies } from './hook';
+export { CookiesProvider, SecureCookiesProvider } from './provider';

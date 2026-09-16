@@ -40,12 +40,20 @@ export const CookiesProvider: FC<{
   return <Ctx.Provider value={cookies}>{children}</Ctx.Provider>;
 };
 
+const EMPTY_COOKIES: CookieRecord[] = [];
+
 export const SecureCookiesProvider: FC<{
   value: SecureValueRef;
   children: ReactNode;
 }> = ({ value, children }) => {
-  const secureValue = useSecureCookies(value);
-  const cookies = secureValue ? useCookieRecords(secureValue) : null;
+  // `<CookiesProvider>` (server) stashes the cookie records in a process-wide
+  // map and only passes a reference here, so the values never reach the RSC
+  // payload. That lookup can miss when this component renders somewhere that
+  // does not share the map with the server component - e.g. the Next.js dev
+  // `instant` validator worker thread - or after the entry expired. Degrade to
+  // an empty cookie set instead of reporting a missing provider.
+  const secureValue = useSecureCookies(value) ?? EMPTY_COOKIES;
+  const cookies = useCookieRecords(secureValue);
 
   return <Ctx.Provider value={cookies}>{children}</Ctx.Provider>;
 };

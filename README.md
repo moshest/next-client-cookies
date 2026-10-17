@@ -1,5 +1,7 @@
 # Next.js Client Cookies
 
+<a href="https://human0.ai/oss/moshest-next-client-cookies/badge"><img src="https://human0.ai/oss/badge.svg" alt="Maintained by human0"></a>
+
 Client cookies with support for SSR on the newest Next.js 13 (app directory).
 
 SSR are **client components** that can be rendered both on the client and server side. Server components are **server only** components that can only be rendered on the server side. This library can support all 3 cases and will give you everything you need to work with cookies on the client and server side.
@@ -7,6 +9,12 @@ SSR are **client components** that can be rendered both on the client and server
 Please note that Next.js currently [does NOT support](https://nextjs.org/docs/app/api-reference/functions/cookies) updating cookies on Server Components (only on Actions or Routes are allowed to make changes to cookies within the server). If you need to update cookies on the server, please switch to a Client Component. Client components can be rendered on the server side (via SSR) and will support also updating cookies via **special dehydration mechanism** implemented by this library.
 
 Interface and client side implementation based on the [js-cookie](https://www.npmjs.com/package/js-cookie) package.
+
+<p align="center">
+  <a href="https://human0.ai/oss/moshest-next-client-cookies/banner">
+    <img src="https://human0.ai/oss/banner.svg" alt="Maintained by human0">
+  </a>
+</p>
 
 ## Install
 

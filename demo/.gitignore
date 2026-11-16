@@ -5,10 +5,9 @@
 /.pnp
 .pnp.js
 
-# version locks (we want the latest versions when testing)
+# Keep Yarn and npm on latest versions; track pnpm for audit coverage
 /yarn.lock
 /package-lock.json
-/pnpm-lock.yaml
 
 # testing
 /coverage

@@ -6,10 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "next": "16.4.5",
+    "next": "16.4.6",
     "next-client-cookies": "../",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
